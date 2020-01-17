@@ -22,6 +22,7 @@ const ConnectedWidget = props =>
       autofocus={props.autofocus}
       customLauncher={props.launcher}
       maxLength={props.maxLength}
+      sendInterval={props.sendInterval}
     />
   </Provider>;
 
@@ -40,6 +41,7 @@ ConnectedWidget.propTypes = {
   autofocus: PropTypes.bool,
   launcher: PropTypes.func,
   maxLength: PropTypes.number,
+  sendInterval: PropTypes.number,
 };
 
 ConnectedWidget.defaultProps = {
@@ -50,7 +52,8 @@ ConnectedWidget.defaultProps = {
   fullScreenMode: false,
   badge: 0,
   autofocus: false,
-  maxLength: 1024
+  maxLength: 1024,
+  sendInterval: 500, // 500ms
 };
 
 export default ConnectedWidget;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import {debounce} from 'lodash';
 import { toggleChat, addUserMessage } from '@actions';
 
 import WidgetLayout from './layout';
@@ -17,9 +17,7 @@ class Widget extends Component {
     this.props.dispatch(toggleChat());
   }
 
-  handleMessageSubmit = (event) => {
-    event.preventDefault();
-    const userInput = event.target.message.value;
+  processMessage = debounce(userInput => {
     if (userInput.trim()) {
       if (!this.props.handleMessageSubmit) {
         this.props.dispatch(addUserMessage(userInput));
@@ -28,6 +26,12 @@ class Widget extends Component {
       }
       this.props.handleNewUserMessage(userInput);
     }
+  }, this.props.sendInterval);
+
+  handleMessageSubmit = (event) => {
+    event.preventDefault();
+    const userInput = event.target.message.value;
+    this.processMessage(userInput);
     event.target.message.value = '';
   }
 
@@ -76,6 +80,7 @@ Widget.propTypes = {
   autofocus: PropTypes.bool,
   customLauncher: PropTypes.func,
   maxLength: PropTypes.number,
+  sendInterval: PropTypes.number,
 };
 
 export default connect()(Widget);
