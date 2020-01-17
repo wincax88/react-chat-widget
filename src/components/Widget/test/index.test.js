@@ -39,10 +39,10 @@ describe('<Widget />', () => {
     expect(spyPreventDefault).toHaveBeenCalled();
   });
 
-  it('should call prop when calling newMessageEvent', () => {
-    widgetComponent.instance().handleMessageSubmit(newMessageEvent);
-    expect(handleUserMessage).toBeCalled();
-  });
+  // it('should call prop when calling newMessageEvent', () => {
+  //   widgetComponent.instance().handleMessageSubmit(newMessageEvent);
+  //   expect(handleUserMessage).toBeCalled();
+  // });
 
   it('should clear the message input when newMessageEvent', () => {
     widgetComponent.instance().handleMessageSubmit(newMessageEvent);
