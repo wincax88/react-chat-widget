@@ -13,6 +13,7 @@ const ConnectedWidget = props =>
       subtitle={props.subtitle}
       handleNewUserMessage={props.handleNewUserMessage}
       handleQuickButtonClicked={props.handleQuickButtonClicked}
+      handleMessageSubmit={props.handleMessageSubmit}
       senderPlaceHolder={props.senderPlaceHolder}
       profileAvatar={props.profileAvatar}
       showCloseButton={props.showCloseButton}
@@ -29,6 +30,7 @@ ConnectedWidget.propTypes = {
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
   handleQuickButtonClicked: PropTypes.func,
+  handleMessageSubmit:PropTypes.func,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
@@ -45,7 +47,7 @@ ConnectedWidget.defaultProps = {
   showCloseButton: true,
   fullScreenMode: false,
   badge: 0,
-  autofocus: true
+  autofocus: false
 };
 
 export default ConnectedWidget;

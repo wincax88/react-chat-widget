@@ -19,6 +19,7 @@
     "javascript"
   ],
   "dependencies": {
+    "@joeattardi/emoji-button": "^2.5.4",
     "immutable": "^3.8.1",
     "markdown-it": "^8.4.1",
     "markdown-it-link-attributes": "^2.1.0",
@@ -70,9 +71,9 @@
     "style-loader": "^0.18.2",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^0.5.9",
-    "webpack": "^4.4.1",
+    "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.10.1"
   },
   "peerDependencies": {
     "react": "^16.3.1"

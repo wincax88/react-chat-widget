@@ -30,6 +30,24 @@
   }
 }
 
+.rcw-emoji {
+  align-items: center;
+  display: flex;
+  background-color: $grey-2;
+  height: 45px;
+  padding: 5px;
+  border-radius: 0 0 10px 10px;
+}
+
+.rcw-emoji {
+  background: $grey-2;
+  border: 0;
+
+  .rcw-emoji-icon {
+    height: 25px;
+  }
+}
+
 @media screen and (max-width: 800px)  {
   .rcw-sender {
     border-radius: 0;

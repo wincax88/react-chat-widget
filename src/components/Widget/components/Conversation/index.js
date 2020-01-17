@@ -20,12 +20,14 @@ const Conversation = props =>
       profileAvatar={props.profileAvatar}
     />
     <QuickButtons onQuickButtonClicked={props.onQuickButtonClicked} />
+
     <Sender
       sendMessage={props.sendMessage}
       placeholder={props.senderPlaceHolder}
       disabledInput={props.disabledInput}
       autofocus={props.autofocus}
-    />
+    >
+    </Sender>
   </div>;
 
 Conversation.propTypes = {

@@ -21,7 +21,11 @@ class Widget extends Component {
     event.preventDefault();
     const userInput = event.target.message.value;
     if (userInput.trim()) {
-      this.props.dispatch(addUserMessage(userInput));
+      if (!this.props.handleMessageSubmit) {
+        this.props.dispatch(addUserMessage(userInput));
+      } else{
+        this.props.handleMessageSubmit(userInput)
+      }
       this.props.handleNewUserMessage(userInput);
     }
     event.target.message.value = '';
@@ -62,6 +66,7 @@ Widget.propTypes = {
   subtitle: PropTypes.string,
   handleNewUserMessage: PropTypes.func.isRequired,
   handleQuickButtonClicked: PropTypes.func.isRequired,
+  handleMessageSubmit:PropTypes.func,
   senderPlaceHolder: PropTypes.string,
   profileAvatar: PropTypes.string,
   showCloseButton: PropTypes.bool,
