@@ -26,6 +26,7 @@ const Conversation = props =>
       placeholder={props.senderPlaceHolder}
       disabledInput={props.disabledInput}
       autofocus={props.autofocus}
+      maxLength={props.maxLength}
     >
     </Sender>
   </div>;
@@ -40,7 +41,8 @@ Conversation.propTypes = {
   toggleChat: PropTypes.func,
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,
-  autofocus: PropTypes.bool
+  autofocus: PropTypes.bool,
+  maxLength: PropTypes.number,
 };
 
 export default Conversation;

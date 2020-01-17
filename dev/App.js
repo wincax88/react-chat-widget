@@ -48,6 +48,7 @@ export default class App extends Component {
           handleQuickButtonClicked={this.handleQuickButtonClicked}
           handleMessageSubmit={this.handleMessageSubmit}
           badge={1}
+          maxLength={11}
         />
       </div>
     );

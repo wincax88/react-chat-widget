@@ -21,6 +21,7 @@ const ConnectedWidget = props =>
       badge={props.badge}
       autofocus={props.autofocus}
       customLauncher={props.launcher}
+      maxLength={props.maxLength}
     />
   </Provider>;
 
@@ -37,7 +38,8 @@ ConnectedWidget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  launcher: PropTypes.func
+  launcher: PropTypes.func,
+  maxLength: PropTypes.number,
 };
 
 ConnectedWidget.defaultProps = {
@@ -47,7 +49,8 @@ ConnectedWidget.defaultProps = {
   showCloseButton: true,
   fullScreenMode: false,
   badge: 0,
-  autofocus: false
+  autofocus: false,
+  maxLength: 1024
 };
 
 export default ConnectedWidget;

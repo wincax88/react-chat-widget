@@ -39,10 +39,10 @@ class Sender extends Component{
 
 
   render() {
-    const { sendMessage, placeholder, disabledInput, autofocus } = this.props;
+    const { sendMessage, placeholder, disabledInput, autofocus, maxLength } = this.props;
     return (
       <form className="rcw-sender" onSubmit={sendMessage}>
-        <input type="text" className="rcw-new-message" name="message" id="message-input" placeholder={placeholder} disabled={disabledInput} autoFocus={autofocus} autoComplete="off" ref={this.input}/>
+        <input type="text" className="rcw-new-message" name="message" id="message-input" placeholder={placeholder} disabled={disabledInput} autoFocus={autofocus} autoComplete="off" maxLength={maxLength} ref={this.input} />
         <button type="button" className="rcw-emoji" id="emoji-button" onClick={this.onEmoji} >
           <img src={emoji} className="rcw-emoji-icon" alt="emoji" />
         </button>
@@ -59,7 +59,8 @@ Sender.propTypes = {
   sendMessage: PropTypes.func,
   placeholder: PropTypes.string,
   disabledInput: PropTypes.bool,
-  autofocus: PropTypes.bool
+  autofocus: PropTypes.bool,
+  maxLength: PropTypes.number,
 };
 
 export default Sender;

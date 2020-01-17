@@ -55,6 +55,7 @@ class Widget extends Component {
         badge={this.props.badge}
         autofocus={this.props.autofocus}
         customLauncher={this.props.customLauncher}
+        maxLength={this.props.maxLength}
       />
     );
   }
@@ -73,7 +74,8 @@ Widget.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.func
+  customLauncher: PropTypes.func,
+  maxLength: PropTypes.number,
 };
 
 export default connect()(Widget);
