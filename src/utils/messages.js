@@ -1,15 +1,21 @@
 import { Map } from 'immutable';
+import moment from 'moment'
 import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '@constants';
 
 import Message from '@messagesComponents/Message';
 import Snippet from '@messagesComponents/Snippet';
 import QuickButton from '@quickButtonsComponents/QuickButton';
 
-export function createNewMessage(text, sender) {
+require('moment/locale/zh-cn')
+
+export function createNewMessage(message, sender) {
   return Map({
     type: MESSAGES_TYPES.TEXT,
     component: Message,
-    text,
+    text: message.text,
+    nick: message.nick,
+    uid: message.uid,
+    timestamp: message.timestamp,
     sender,
     showAvatar: sender === MESSAGE_SENDER.RESPONSE
   });
@@ -49,7 +55,7 @@ function sinEaseOut(t, b, c, d) {
 }
 
 /**
- * 
+ *
  * @param {*} target scroll target
  * @param {*} scrollStart
  * @param {*} scroll scroll distance
@@ -88,4 +94,16 @@ export function createQuickButton(button) {
     label: button.label,
     value: button.value
   });
+}
+
+export function getFormatTime(timestamp) {
+  if (moment().year() === moment(timestamp).year()) {
+    if (moment().dayOfYear() === moment(timestamp).dayOfYear()) {
+      return moment(timestamp).format('HH:mm');
+    } else {
+      return moment(timestamp).format('MM-DD HH:mm');
+    }
+  } else {
+    return moment(timestamp).format('YYYY-MM-DD HH:mm');
+  }
 }

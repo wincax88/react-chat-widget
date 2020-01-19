@@ -4,7 +4,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
 
 import { hideAvatar } from '@actions';
-import { scrollToBottom } from '@utils/messages';
+import { scrollToBottom, getFormatTime } from '@utils/messages';
 
 import Loader from './components/Loader';
 import './styles.scss';
@@ -46,6 +46,10 @@ class Messages extends Component {
               message.get('showAvatar') &&
               <img src={profileAvatar} className="rcw-avatar" alt="profile" />
             }
+            <div>
+              <span className={`rcw-message-nick-${message.get('sender')}`}>{message.get('nick')}</span>
+              <span className={`rcw-message-time-${message.get('sender')}`}>{getFormatTime(message.get('timestamp'))}</span>
+            </div>
             {this.getComponentToRender(message)}
           </div>
         )}

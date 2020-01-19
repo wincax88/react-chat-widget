@@ -12,17 +12,17 @@ export function toggleInputDisabled() {
   };
 }
 
-export function addUserMessage(text) {
+export function addUserMessage(message) {
   return {
     type: actions.ADD_NEW_USER_MESSAGE,
-    text
+    message
   };
 }
 
-export function addResponseMessage(text) {
+export function addResponseMessage(message) {
   return {
     type: actions.ADD_NEW_RESPONSE_MESSAGE,
-    text
+    message
   };
 }
 

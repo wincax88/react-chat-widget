@@ -3,17 +3,17 @@
 
 .rcw-message {
   margin: 10px;
-  display: flex;
+  display: grid;
   word-wrap: break-word;
 }
 
 .rcw-client {
-  @include message-bubble($turqois-2);
+  @include message-bubble($turqois-2, $border-radius-right);
   margin-left: auto;
 }
 
 .rcw-response {
-  @include message-bubble($grey-2);
+  @include message-bubble($grey-2, $border-radius-left);
 }
 
 /* For markdown elements created with default styles */

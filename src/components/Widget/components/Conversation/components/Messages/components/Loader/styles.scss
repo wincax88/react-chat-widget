@@ -1,7 +1,7 @@
 @import 'variables.scss';
 
 .loader {
-  margin: 10px;
+  margin: 5px;
   display: none;
 
   &.active {
@@ -11,8 +11,8 @@
 
 .loader-container {
   background-color: $grey-2;
-  border-radius: 10px;
-  padding: 15px;
+  border-radius: 5px;
+  padding: 5px;
   max-width: 215px;
   text-align: left;
 }
@@ -44,6 +44,6 @@
     transform: translateY(0px);
   }
   100% {
-    transform: translateY(5px); 
+    transform: translateY(5px);
   }
 }

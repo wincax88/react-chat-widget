@@ -12,7 +12,8 @@ import Snippet from '../components/Snippet';
 configure({ adapter: new Adapter() });
 
 describe('<Messages />', () => {
-  const message = createNewMessage('Response message 1');
+  const timestamp = new Date().getTime();
+  const message = createNewMessage({text:'Response message 1', nick:'test', uid: 'test', timestamp: timestamp});
   const linkSnippet = createLinkSnippet({ title: 'link', link: 'link' });
   /* eslint-disable react/prop-types */
   const Dummy = ({ text }) => <div>{text}</div>;

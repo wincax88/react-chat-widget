@@ -21,6 +21,9 @@ export const PROP_TYPES = {
       MESSAGES_TYPES.SNIPPET.LINK
     ]),
     text: PropTypes.string,
+    nick: PropTypes.string,
+    uid: PropTypes.string,
+    timestamp: PropTypes.number,
     sender: PropTypes.oneOf([
       MESSAGE_SENDER.CLIENT,
       MESSAGE_SENDER.RESPONSE

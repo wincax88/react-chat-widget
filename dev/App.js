@@ -3,7 +3,8 @@ import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addUserMe
 
 export default class App extends Component {
   componentDidMount() {
-    addResponseMessage('Welcome to this awesome chat!');
+    const timestamp = new Date().getTime();
+    addResponseMessage({text:'Welcome to this awesome chat!', nick:'others', uid:'others', timestamp: timestamp});
   }
 
   handleNewUserMessage = (newMessage) => {
@@ -13,7 +14,8 @@ export default class App extends Component {
       if (newMessage === 'fruits') {
         setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
       } else {
-        addResponseMessage(newMessage);
+        const timestamp = new Date().getTime();
+        addResponseMessage({text:newMessage, nick:'others', uid:'others', timestamp: timestamp });
       }
     }, 2000);
   }
@@ -25,13 +27,15 @@ export default class App extends Component {
 
   onText() {
     const input = document.getElementById('input-text');
-    addUserMessage(input.value)
+    const timestamp = new Date().getTime();
+    addUserMessage({text:input.value, nick:'others', uid:'others', timestamp: timestamp})
   }
 
   handleMessageSubmit(userInput) {
     console.log('handleMessageSubmit', userInput);
     if (userInput.trim()) {
-      addUserMessage(userInput);
+      const timestamp = new Date().getTime();
+      addUserMessage({text:userInput, nick:'me', uid:'me', timestamp: timestamp});
     }
 }
 
